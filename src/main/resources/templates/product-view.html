@@ -1,0 +1,43 @@
+<html>
+<body>
+	<a href="/home">Back</a>
+	</br>
+
+	<a href="/product/add">Add</a>
+	</br>
+	<table border="2">
+		<tr>
+			<td>Id</td>
+			<td>Category</td>
+			<td>SubCategory</td>
+			<td>Product</td>
+			<td>MRP</td>
+			<td>Quantity</td>
+		</tr>
+		<tr th:each="prolist:${list}">
+			<td th:text=${prolist.id}></td>
+			<td>
+				<table>
+					<tr th:each="subcat:${subcatlist}">
+						<td th:if="${subcat.categoryId==prolist.subcategory}"
+							th:text="${subcat.categoryId}"></td>
+					</tr>
+				</table>
+			</td>
+			<td>
+				<table>
+					<tr th:each="subcat:${subcatlist}">
+						<td th:if="${prolist.subcategory== subcat.id}"
+							th:text="${subcat.name}"></td>
+					</tr>
+				</table>
+			</td>
+			<td th:text=${prolist.product_name}></td>
+			<td th:text=${prolist.mrp}></td>
+			<td th:text=${prolist.quantity}></td>
+			<td><a th:href="@{'/product/delete/'+${prolist.id}}">Delete</a></td>
+			<td><a th:href="@{'/product/edit?id='+${prolist.id}}">Edit</a></td>
+		</tr>
+	</table>
+</body>
+</html>

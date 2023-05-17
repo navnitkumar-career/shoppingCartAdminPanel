@@ -1,0 +1,32 @@
+<html>
+<body>
+	<a href="/home">Back</a>
+	</br>
+	<a href="/subcategory/add">Add</a>
+	</br>
+	<table border="2">
+		<tr>
+			<th>Id</th>
+			<th>Category</th>
+
+			<th>Name</th>
+		</tr>
+		<tr th:each="subcat:${list}">
+			<td th:text=${subcat.id}></td>
+			<td>
+				<table>
+					<tr th:each="cat:${catList}">
+						<td th:if="${subcat.CategoryId== cat.id}" th:text="${cat.name}">
+						</td>
+					</tr>
+				</table>
+			</td>
+
+			<td th:text=${subcat.name}></td>
+			<td><a th:href="@{'/subcategory/delete/'+${subcat.id}}">Delete</a></td>
+			<td><a th:href="@{'/subcategory/edit?id='+${subcat.id}}">Edit</a></td>
+
+		</tr>
+	</table>
+</body>
+</html>

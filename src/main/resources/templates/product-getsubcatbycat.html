@@ -1,0 +1,4 @@
+<select required name="subcategory" id="subcategory" style="width: 150px;">
+					<option value="">--Select--</option>
+					<option th:each="subcat : ${subCatList}" th:value="${subcat.id}" th:text="${subcat.name}"> </option>
+				</select>

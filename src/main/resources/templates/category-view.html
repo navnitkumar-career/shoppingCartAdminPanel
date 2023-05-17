@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+	background-color: #d1e7dd;
+}
+.title {
+	text-align: center;
+	background-color: #d1e7dd;
+}
+</style>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Opsence Technologies</title>
+<link rel="icon"
+	href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBD3IZaetX7CSlJDQSCK2Fvnj-NKubcO7ppw&usqp=CAU"
+	type="image/x-icon">
+</head>
+<body>
+	<div class="body">
+		<div class="title">
+			<h1 style="background-color: #bcd0c7;;">Category View</h1>
+		</div>
+
+		<form>
+		<a href="/home	" class="btn btn-outline-primary">Home </a>
+			<a href="/category/add" class="btn btn-outline-primary">Add
+				Category </a>
+			<table class="table table-success table-striped">
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+				<tr th:each="list:${list}">
+					<td th:text=${list.id}></td>
+					<td th:text=${list.name}></td>
+					<td colspan="2"><a th:href="@{'/category/delete/'+${list.id}}"
+						class="btn btn-outline-primary">Delete</a> <a
+						th:href="@{'/category/edit?id='+${list.id}}"
+						class="btn btn-outline-primary">Edit</a></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

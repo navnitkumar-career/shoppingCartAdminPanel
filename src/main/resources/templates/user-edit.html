@@ -1,0 +1,29 @@
+<html>
+	<body>
+<form action="/user/edit-save" method="POST">
+	<input type="hidden" name="id" th:value="${list.id}" value="">
+		<h1>Edit Information</h1>
+		<table>
+			<tr>
+				<th>Enter Name</th>
+				<td><input type="text" name="name" th:value="${list.name}" value=""></td>
+			</tr>
+			<tr>
+				<th>Enter E-Mail
+				</th>
+				<td><input type="text" name="email" th:value="${list.email}" value="">
+				</td>
+			</tr>
+			<tr>
+				<th>Enter Password
+				</th>
+				<td><input type="password" name="password" th:value="${list.password}" value=""> </td>
+			</tr>
+			<tr>
+				<th><input type="submit" value="submit"> </th>
+
+			</tr>
+		</table>
+		</form>
+	</body>
+	</html>

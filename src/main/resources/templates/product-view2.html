@@ -1,0 +1,28 @@
+<html>
+<body>
+	<a href="/home">Back</a>
+	</br>
+	<a href="/product/add">Add</a>
+	</br>
+	<table border="2" style="background-color: lightgray;">
+		<tr style="background-color: gray;">
+			<td>Id</td>
+			<td>Category</td>
+			<td>SubCategory</td>
+			<td>Product</td>
+			<td>MRP</td>
+			<td>Quantity</td>
+		</tr>
+		<tr th:each="mlist:${mlist}">
+			<td th:text=${mlist.id}></td>
+			<td th:text=${mlist.catName}></td>
+			<td th:text=${mlist.subCatName}></td>
+			<td th:text=${mlist.proName}></td>
+			<td th:text=${mlist.mrp}></td>
+			<td th:text=${mlist.quantity}></td>
+			<td><a th:href="@{'/product/delete/'+${mlist.id}}">Delete</a></td>
+			<td><a th:href="@{'/product/edit?id='+${mlist.id}}">Edit</a></td>
+		</tr>
+	</table>
+</body>
+</html>

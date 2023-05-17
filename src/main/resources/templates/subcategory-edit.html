@@ -1,0 +1,28 @@
+<html>
+<body>
+
+	<form action="/subcategory/edit-save" method="POST">
+		<input type="hidden" name="id" th:value="${list.id}" value="">
+
+		<table border="2">
+			<tr>
+				<th>Enter Your Category ID</th>
+				<td><select required name="category_id" style="width: 150px;">
+						<option value=""></option>
+						<option th:each="cat : ${catList}" th:value="${cat.id}"
+							th:text="${cat.name}" th:selected="${cat.id==list.CategoryId}">
+						</option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Enter Your Name</th>
+				<td><input type="text" name="name" th:value="${list.name}"
+					value=""></td>
+			</tr>
+			<tr>
+				<td><input type="submit"></td>
+			</tr>
+		</table>
+		</form>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<table border="2" style="background-color: gray;">
+	<tr>
+		<td>Category Id </td>
+		<td>Category Name </td>
+		<td>Sub Category Count </td>
+		<td>Product Count </td>
+
+	</tr>
+	<tr th:each="map:${mlist}">
+		<td th:text=${map.id}> </td>
+		<td th:text=${map.Cat_Name}> </td>
+
+		<td th:text=${map.total_sub_cat}> </td>
+		<td th:text=${map.total_prod}> </td>
+	<tr>
+</table>

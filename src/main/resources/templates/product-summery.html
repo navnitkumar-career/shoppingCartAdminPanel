@@ -1,0 +1,14 @@
+<table border="2" style="background-color: gray;">
+	<tr>
+		<th>Id</th>
+		<th>SubCategory Name</th>
+		<th>Product Count</th>
+	</tr>
+
+	<tr th:each="proList:${product_summery}">
+	
+		<td th:text="${proList.subId}"> </td>
+		<td th:text="${proList.subName}"> </td>
+		<td th:text="${proList.productCount}"> </td>
+	</tr>
+</table>

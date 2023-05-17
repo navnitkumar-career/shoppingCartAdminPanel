@@ -1,0 +1,58 @@
+<html>
+<body>
+	<form action="/product/add-save" method="POST">
+		<table border="2">
+			<tr>
+				<th>Select Your Category</th>
+				<td><select required name="category" id="category"
+					style="width: 150px;" onchange="getSubcat()">
+
+						<option value="">--Select--</option>
+						<option th:each="cat : ${catList}" th:value="${cat.id}"
+							th:text="${cat.name}"></option>
+				</select></td>
+			</tr>
+			<tr>
+				<th>Select Your Sub Category</th>
+				<td id="tdsubcat"><select required name="subcategory"
+					id="subcategory" style="width: 150px;">
+						<option value="">--Select--</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>Enter Product</td>
+				<td><input type="text" name="product_name"></td>
+			</tr>
+			<tr>
+				<td>Enter Mrp</td>
+				<td><input type="text" name="mrp"></td>
+			</tr>
+			<tr>
+				<td>Enter Quantity</td>
+				<td><input type="text" name="quantity"></td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="submit"></td>
+			</tr>
+
+
+		</table>
+	</form>
+</body>
+<script>
+	function getSubcat() {
+
+		var categoryId = document.getElementById("category").value;
+		document.getElementById("tdsubcat").innerHTML = "<img style='width: 25px;' src='/loader.gif' alt='loading'>";
+
+		var xmlhttp = new XMLHttpRequest();
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				document.getElementById("tdsubcat").innerHTML = this.responseText;
+			}
+		};
+		xmlhttp.open("GET", "/product/getsubcatbycat/" + categoryId, true);
+		xmlhttp.send();
+	}
+</script>
+</html>
